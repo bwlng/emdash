@@ -178,6 +178,9 @@ export function ContentList({
 									<th scope="col" className="px-4 py-3 text-left text-sm font-medium">
 										Date
 									</th>
+									<th scope="col" className="px-4 py-3 text-left text-sm font-medium">
+										Published
+									</th>
 									<th scope="col" className="px-4 py-3 text-right text-sm font-medium">
 										Actions
 									</th>
@@ -331,6 +334,7 @@ function ContentListItem({
 }: ContentListItemProps) {
 	const title = getItemTitle(item);
 	const date = new Date(item.updatedAt || item.createdAt);
+	const publishedDate = item.publishedAt ? new Date(item.publishedAt) : null;
 
 	return (
 		<tr className="border-b hover:bg-kumo-tint/25">
@@ -357,6 +361,7 @@ function ContentListItem({
 				</td>
 			)}
 			<td className="px-4 py-3 text-sm text-kumo-subtle">{date.toLocaleDateString()}</td>
+			<td className="px-4 py-3 text-sm text-kumo-subtle">{publishedDate ? publishedDate.toLocaleDateString() : "-"}</td>
 			<td className="px-4 py-3 text-right">
 				<div className="flex items-center justify-end space-x-1">
 					<Link
