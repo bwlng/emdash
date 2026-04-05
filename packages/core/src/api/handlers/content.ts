@@ -384,6 +384,7 @@ export async function handleContentCreate(
 		bylines?: ContentBylineInput[];
 		locale?: string;
 		translationOf?: string;
+		publishedAt?: string | null;
 		seo?: ContentSeoInput;
 	},
 ): Promise<ApiResult<ContentResponse>> {
@@ -423,6 +424,7 @@ export async function handleContentCreate(
 				authorId: body.authorId,
 				locale: body.locale,
 				translationOf: body.translationOf,
+				publishedAt: body.publishedAt,
 			});
 
 			if (body.bylines !== undefined) {

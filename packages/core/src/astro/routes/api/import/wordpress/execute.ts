@@ -240,6 +240,7 @@ async function importContent(
 				authorId,
 				bylines: bylineId ? [{ bylineId }] : undefined,
 				locale,
+				publishedAt: post.pubDate ? new Date(post.pubDate).toISOString() : undefined,
 			});
 
 			if (createResult.success) {
